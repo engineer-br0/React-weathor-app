@@ -73,7 +73,7 @@ function App() {
      
      <Particle className='particle' />
     
-
+     <div></div>
      </div>
   );
 }
