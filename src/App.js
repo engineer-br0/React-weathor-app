@@ -65,11 +65,13 @@ function App() {
     <Container>
       <AppLabel>React Weather App</AppLabel>
       {city && weather ? (
-        <WeatherComponent weather={weather} city={city} />
+        <WeatherComponent weather={weather} city={city} updateCity={updateCity} fetchWeather={fetchWeather} />
       ) : (
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
      </Container>
+
+     
      
      <Particle className='particle' />
      <Footer></Footer>

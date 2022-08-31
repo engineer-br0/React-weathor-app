@@ -1,6 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import {WeatherIcons} from "../App";
+
+const SearchBox = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px;
+  border: black solid 1px;
+  border-radius: 2px;
+
+  & input {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    font-family: Montserrat;
+    font-weight: bold;
+  }
+  & button {
+    background-color: black;
+    font-size: 14px;
+    padding: 0 10px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-weight: bold;
+  }
+`;
 
 export const WeatherInfoIcons = {
     sunset: "./icons/day.png",
@@ -105,6 +133,7 @@ const WeatherInfoComponent = (props) => {
     );
 };
 const WeatherComponent = (props) => {
+    const { updateCity, fetchWeather } = props;
     const {weather} = props;
     const isDay = weather?.weather[0].icon?.includes('d')
     const getTime = (timeStamp) => {
@@ -134,6 +163,13 @@ const WeatherComponent = (props) => {
                 <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed}/>
                 <WeatherInfoComponent name={"pressure"} value={weather?.main?.pressure}/>
             </WeatherInfoContainer>
+            <SearchBox onSubmit={fetchWeather}>
+        <input
+          onChange={(e) => updateCity(e.target.value)}
+          placeholder="City"
+        />
+        <button type={"submit"}>Search</button>
+      </SearchBox>
         </>
     );
 };
