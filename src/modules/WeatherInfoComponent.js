@@ -1,34 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchBox = styled.form`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 20px;
-  border: black solid 1px;
-  border-radius: 2px;
 
-  & input {
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    outline: none;
-    font-family: Montserrat;
-    font-weight: bold;
-  }
-  & button {
-    background-color: black;
-    font-size: 14px;
-    padding: 0 10px;
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-family: Montserrat;
-    font-weight: bold;
-  }
-`;
 
 export const WeatherInfoIcons = {
     sunset: "./icons/day.png",
@@ -103,6 +76,16 @@ const InfoLabel = styled.span`
   }
 `;
 
+const Button = styled.button`
+  color: black;
+  background-color : skyblue;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+`;
+
 const WeatherInfoComponent = (props) => {
     const {name, value} = props;
     return (
@@ -133,7 +116,6 @@ const WeatherInfoComponent = (props) => {
     );
 };
 const WeatherComponent = (props) => {
-    const { updateCity, fetchWeather } = props;
     const {weather} = props;
     const isDay = weather?.weather[0].icon?.includes('d')
     const getTime = (timeStamp) => {
@@ -162,14 +144,10 @@ const WeatherComponent = (props) => {
                 <WeatherInfoComponent name={"humidity"} value={weather?.main?.humidity}/>
                 <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed}/>
                 <WeatherInfoComponent name={"pressure"} value={weather?.main?.pressure}/>
+                
             </WeatherInfoContainer>
-            <SearchBox onSubmit={fetchWeather}>
-        <input
-          onChange={(e) => updateCity(e.target.value)}
-          placeholder="City"
-        />
-        <button type={"submit"}>Search</button>
-      </SearchBox>
+            <Button onClick={() => window.location.reload()}>Change Location</Button>
+            
         </>
     );
 };

@@ -51,8 +51,8 @@ function App() {
   
 
 
-  const [city, updateCity] = useState();
-  const [weather, updateWeather] = useState();
+  const [city, updateCity] = useState("");
+  const [weather, updateWeather] = useState("");
   const fetchWeather = async (e) => {
     e.preventDefault();
     const response = await Axios.get(
@@ -60,12 +60,15 @@ function App() {
     );
     updateWeather(response.data);
   };
+  const newCity = () =>{
+    updateCity("");
+  }
   return (
     <div>
     <Container>
       <AppLabel>React Weather App</AppLabel>
       {city && weather ? (
-        <WeatherComponent weather={weather} city={city} updateCity={updateCity} fetchWeather={fetchWeather} />
+        <WeatherComponent weather={weather} city={city} newCity={newCity} updateCity={updateCity} fetchWeather={fetchWeather} />
       ) : (
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
