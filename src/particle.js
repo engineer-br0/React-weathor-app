@@ -52,7 +52,7 @@ export default function Particle() {
                                 }
                             },
                             "size": {
-                                "value": 5,
+                                "value": 11,
                                 "random": true,
                                 "anim": {
                                     "enable": false,
@@ -80,7 +80,7 @@ export default function Particle() {
                             },
                             "move": {
                                 "enable": true,
-                                "speed": 3,
+                                "speed": 2,
                                 "direction": "none",
                                 "random": false,
                                 "straight": false,
@@ -131,7 +131,7 @@ export default function Particle() {
                         },
                         "retina_detect": true,
                         "background": {
-                            "color": "random",
+                            "color": "B0E0E6",
                             "image": "",
                             "position": "50% 50%",
                             "repeat": "no-repeat",
