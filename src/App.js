@@ -5,7 +5,7 @@ import Axios from "axios";
 import CityComponent from "./modules/CityComponent";
 import WeatherComponent from "./modules/WeatherInfoComponent";
 import Particle from './particle'
-
+import Footer from './Footer.js'
 
 
 
@@ -72,7 +72,7 @@ function App() {
      </Container>
      
      <Particle className='particle' />
-    
+     <Footer></Footer>
      <div></div>
      </div>
   );
